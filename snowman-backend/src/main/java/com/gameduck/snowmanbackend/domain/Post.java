@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.NaturalId;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
 public class Post {
 
 	@Id
