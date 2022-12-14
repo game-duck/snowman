@@ -21,7 +21,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Builder
 public class Post {
 
 	@Id
@@ -40,5 +39,14 @@ public class Post {
 	@NaturalId
 	@Column(length = 60)
 	private PostType postType;
+
+	@Builder
+	public Post(Snowman snowman, String author, String content,
+		PostType postType) {
+		this.snowman = snowman;
+		this.author = author;
+		this.content = content;
+		this.postType = postType;
+	}
 
 }
