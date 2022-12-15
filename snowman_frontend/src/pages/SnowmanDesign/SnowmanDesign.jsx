@@ -43,6 +43,7 @@ export default function SnowmanDesign() {
         </DesignBox>
         <BackBtn>뒤로가기</BackBtn>
         <LetterBtn>편지쓰러가기</LetterBtn>
+
         <Tree>
           <img
             src={process.env.PUBLIC_URL + '/images/tree.png'}
