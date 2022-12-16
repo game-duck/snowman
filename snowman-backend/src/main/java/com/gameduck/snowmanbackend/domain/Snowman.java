@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
 public class Snowman {
 
 	@Id
@@ -29,8 +31,9 @@ public class Snowman {
 	private User user;
 
 	private String snowmanType;
-
-	private String author;
+  
+	private String authorNickname;
 
 	private String post;
+
 }
