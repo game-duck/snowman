@@ -5,7 +5,14 @@ import {
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
 } from 'react-icons/io';
+import ShareUrl from './ShareUrl';
+import { useNavigate } from 'react-router';
+
 export default function SnowmanGarden() {
+  const navigate = useNavigate();
+  const linkSnowmanDesign = () => {
+    navigate('/snowmanDesign');
+  };
   return (
     <AllContainer>
       <Main>
@@ -26,7 +33,7 @@ export default function SnowmanGarden() {
           만들어졌어요!
           <br></br>총 <span style={{ color: '#ce4545' }}>0</span> 개의 메세지
           <br></br>
-          <ShareBtn># 공유하기</ShareBtn>
+          <ShareUrl />
           <CaptureBtn># 캡쳐하기</CaptureBtn>
         </MainText>
 
@@ -98,7 +105,7 @@ export default function SnowmanGarden() {
 
           <Snow></Snow>
 
-          <DesignBtn>눈사람 만들어주기</DesignBtn>
+          <DesignBtn onClick={linkSnowmanDesign}>눈사람 만들어주기</DesignBtn>
         </Garden>
       </Main>
     </AllContainer>
@@ -115,28 +122,11 @@ const MainText = styled.div`
   z-index: 99;
 `;
 
-const ShareBtn = styled.button`
-  display: inline;
-  margin: 1rem 1rem 1rem 0rem;
-  padding: 0.6rem;
-  background-color: rgba(200, 200, 200, 0.5);
-  border-radius: 1.2rem;
-  color: #dcdcdc;
-  font-size: 1rem;
-  font-family: 'bitbit';
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: white;
-    cursor: pointer;
-  }
-`;
-
 const CaptureBtn = styled.button`
   display: inline;
   padding: 0.6rem;
   background-color: rgba(200, 200, 200, 0.5);
-  border-radius: 1.2rem;
+  border-radius: 5px;
   color: #dcdcdc;
   font-size: 1rem;
   font-family: 'bitbit';
