@@ -163,6 +163,7 @@ const DesignBtn = styled.div`
   line-height: 2.6rem;
   border-radius: 5px;
   background-color: #a2afc7;
+  
   &:hover {
     color: white;
     background-color: #33374a;
