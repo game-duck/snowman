@@ -1,4 +1,4 @@
-package com.snowman.backend.config;
+package com.gameduck.snowmanbackend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
