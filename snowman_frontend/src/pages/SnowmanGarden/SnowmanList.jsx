@@ -5,10 +5,12 @@ import {
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
 } from 'react-icons/io';
+
 import styled from 'styled-components';
 import getZzambbangSnowman from '../../store/services/user.service';
 import axios from 'axios';
 import { useEffect } from 'react';
+
 export default function SnowmanList({ props }) {
   /* pagingnation */
   // 첫 번째 페이지
@@ -95,6 +97,7 @@ export default function SnowmanList({ props }) {
                     src={process.env.PUBLIC_URL + '/images/snowman.png'}
                     alt="snowman"
                     className="firstSnowman"
+
                   />
                 </div>
               );
