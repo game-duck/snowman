@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  z-index: 999;
 }
 
 ul {
@@ -31,7 +32,7 @@ ul.pagination li:last-child {
 
 ul.pagination li a {
   text-decoration: none;
-  color: #198754;
+  color: #c8c8c8;
   font-size: 1rem;
 }
 
@@ -40,7 +41,7 @@ ul.pagination li.active a {
 }
 
 ul.pagination li.active {
-  background-color: #198754;
+  background-color: #0f1322;
 }
 
 ul.pagination li a:hover,

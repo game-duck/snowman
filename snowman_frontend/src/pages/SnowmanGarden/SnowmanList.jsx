@@ -1,28 +1,26 @@
 import { useState } from 'react';
 import Pagination from 'react-js-pagination';
 import '../../styles/Paging.css';
-import {
-  IoMdArrowDropleftCircle,
-  IoMdArrowDroprightCircle,
-} from 'react-icons/io';
 
-import styled from 'styled-components';
-import getZzambbangSnowman from '../../store/services/user.service';
+// import {
+//   IoMdArrowDropleftCircle,
+//   IoMdArrowDroprightCircle,
+// } from 'react-icons/io';
+
 import axios from 'axios';
 import { useEffect } from 'react';
 
-export default function SnowmanList({ props }) {
+export default function SnowmanList() {
   /* pagingnation */
   // 첫 번째 페이지
   const [page, setPage] = useState(1);
   // 한 페이지에 보여줄 총 갯수
-  const [pagePost] = useState(7);
+  const [pagePost] = useState(6);
   // 페이지 이동 이벤트함수
   const handlePageChange = (page) => {
     setPage(page);
   };
   const [data, setData] = useState([]);
-
   useEffect(() => {
     axios
       .get('http://localhost:8080/api/snowmans/zzambbang')
@@ -30,6 +28,7 @@ export default function SnowmanList({ props }) {
         setData(response.data.data);
       });
   }, []);
+
   if (data) {
     return (
       <>
@@ -37,68 +36,77 @@ export default function SnowmanList({ props }) {
           data
             .slice(pagePost * (page - 1), pagePost * (page - 1) + pagePost)
             .map((a, i) => {
-              const snowmanIdDivmod = a.snowmanId % 7;
-              // console.log(typeof(a.snowmanId))
+              const snowmanIdDivmod = a.snowmanId % 6;
               return (
-                <div key={a.snowmanId}>
-                  <DefaultSnowman>
-                    {a.snowmanId === 1 ? 
-                      // console.log(a.snowmanId)
-                        <div style={{width:'500px', height:'500px', backgroundColor: 'orange', zIndex: '999'}}>제발 나와</div>
-                        // <img
-                        //   src={
-                        //     process.env.PUBLIC_URL +
-                        //     '/images/snowmanList/SantaSanta.png'
-                        //   }
-                        //   alt="snowman"
-                        // />
-                      : <div style={{width:'500px', height:'500px', backgroundColor: 'blue', zIndex: '999'}}>제발 나와</div>
-                      
-
-                      // <img
-                      //   src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                      //   alt="snowman"
-                      // />
-                    }
-
-                    {snowmanIdDivmod === 2 ? (
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          '/images/snowmanList/' +
-                          a.snowmanType +
-                          '.png'
-                        }
-                        alt="snowman"
-                      />
-                    ) : (
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          '/images/snowmanList/SantaSanta.png'
-                        }
-                        alt="snowman"
-                      />
-                    )}
-                  </DefaultSnowman>
-                  <SecondLine>
+                <div key={a.snowmanId} className={a.snowmanId}>
+                  {snowmanIdDivmod === 1 ? (
                     <img
-                      src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                      alt="snowman"
-                      className="secondSnowman"
+                      src={
+                        process.env.PUBLIC_URL +
+                        '/images/snowmanList/' +
+                        a.snowmanType +
+                        '.png'
+                      }
+                      alt="snowman1"
+                      className="snowman1"
                     />
+                  ) : snowmanIdDivmod === 2 ? (
                     <img
-                      src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                      alt="snowman"
-                      className="thirdSnowman"
+                      src={
+                        process.env.PUBLIC_URL +
+                        '/images/snowmanList/' +
+                        a.snowmanType +
+                        '.png'
+                      }
+                      alt="snowman2"
+                      className="snowman2"
                     />
-                  </SecondLine>
-                  <img
-                    src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                    alt="snowman"
-                    className="firstSnowman"
+                  ) : snowmanIdDivmod === 3 ? (
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        '/images/snowmanList/' +
+                        a.snowmanType +
+                        '.png'
+                      }
+                      alt="snowman3"
+                      className="snowman3"
+                    />
+                  ) : snowmanIdDivmod === 4 ? (
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        '/images/snowmanList/' +
+                        a.snowmanType +
+                        '.png'
+                      }
+                      alt="snowman4"
+                      className="snowman4"
+                    />
+                  ) : snowmanIdDivmod === 5 ? (
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        '/images/snowmanList/' +
+                        a.snowmanType +
+                        '.png'
+                      }
+                      alt="snowman5"
+                      className="snowman5"
+                    />
+                  ) : snowmanIdDivmod === 0 ? (
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        '/images/snowmanList/' +
+                        a.snowmanType +
+                        '.png'
+                      }
+                      alt="snowman6"
+                      className="snowman6"
+                    />
+                  ) : null}
 
-                  />
                 </div>
               );
             })
@@ -110,13 +118,13 @@ export default function SnowmanList({ props }) {
           // *활성 페이지
           activePage={page}
           // 페이지당 항목 수
-          itemsCountPerPage={7}
+          itemsCountPerPage={6}
           // 페이지 총 아이템수
-          totalItemsCount={props.length}
+          totalItemsCount={data.length}
           // 페이지 범위
           pageRangeDisplayed={3}
           // 이전 페이지 탐색 버튼의 텍스트
-          prevPageText={<IoMdArrowDropleftCircle />}
+          prevPageText={'<'}
           // 다음 페이지 탐색 버튼의 텍스트
           nextPageText={<IoMdArrowDroprightCircle />}
           // 페이지 변경 핸들러 pageNumber를 인수로 수신

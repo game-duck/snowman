@@ -8,7 +8,6 @@ import BugerModal from './BugerModal';
 
 import data from '../../data';
 import SnowmanList from './SnowmanList';
-import Test from './Test';
 
 export default function SnowmanGarden() {
   const navigate = useNavigate();
@@ -78,9 +77,53 @@ const Snowman = styled.div`
   z-index: 99;
   width: 100%;
 
-  .firstSnowman {
-    display: block;
-    margin: auto;
+  & img:hover {
+    transform: scale(1.8);
+    cursor: pointer;
+    z-index: 108;
+  }
+
+  .snowman1 {
+    position: absolute;
+    bottom: 7vh;
+    left: 37%;
+    transform: scale(1.6);
+    z-index: 106;
+  }
+  .snowman2 {
+    position: absolute;
+    bottom: 13vh;
+    left: 20%;
+    transform: scale(1.6);
+    z-index: 105;
+  }
+  .snowman3 {
+    position: absolute;
+    bottom: 13vh;
+    left: 57%;
+    transform: scale(1.6);
+    z-index: 105;
+  }
+  .snowman4 {
+    position: absolute;
+    bottom: 20vh;
+    left: 10%;
+    transform: scale(1.6);
+    z-index: 104;
+  }
+  .snowman5 {
+    position: absolute;
+    bottom: 20vh;
+    left: 37%;
+    transform: scale(1.6);
+    z-index: 104;
+  }
+  .snowman6 {
+    position: absolute;
+    bottom: 20vh;
+    right: 10%;
+    transform: scale(1.6);
+    z-index: 104;
   }
 `;
 const Santa = styled.div`
