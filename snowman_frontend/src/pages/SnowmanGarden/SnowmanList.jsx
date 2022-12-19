@@ -5,6 +5,12 @@ import {
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
 } from 'react-icons/io';
+
+import styled from 'styled-components';
+import getZzambbangSnowman from '../../store/services/user.service';
+import axios from 'axios';
+import { useEffect } from 'react';
+
 export default function SnowmanList({ props }) {
   /* pagingnation */
   // 첫 번째 페이지
@@ -15,25 +21,83 @@ export default function SnowmanList({ props }) {
   const handlePageChange = (page) => {
     setPage(page);
   };
+  const [data, setData] = useState([]);
 
-  if (props) {
+  useEffect(() => {
+    axios
+      .get('http://localhost:8080/api/snowmans/zzambbang')
+      .then((response) => {
+        setData(response.data.data);
+      });
+  }, []);
+  if (data) {
     return (
       <>
-        {props.length > 0 ? (
-          props
+        {data.length > 0 ? (
+          data
             .slice(pagePost * (page - 1), pagePost * (page - 1) + pagePost)
-            .map((prop, i) => {
+            .map((a, i) => {
+              const snowmanIdDivmod = a.snowmanId % 7;
+              // console.log(typeof(a.snowmanId))
               return (
-                <div key={i}>
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      '/images/snowmanList/' +
-                      prop.Head +
-                      prop.Body +
-                      '.png'
+                <div key={a.snowmanId}>
+                  <DefaultSnowman>
+                    {a.snowmanId === 1 ? 
+                      // console.log(a.snowmanId)
+                        <div style={{width:'500px', height:'500px', backgroundColor: 'orange', zIndex: '999'}}>제발 나와</div>
+                        // <img
+                        //   src={
+                        //     process.env.PUBLIC_URL +
+                        //     '/images/snowmanList/SantaSanta.png'
+                        //   }
+                        //   alt="snowman"
+                        // />
+                      : <div style={{width:'500px', height:'500px', backgroundColor: 'blue', zIndex: '999'}}>제발 나와</div>
+                      
+
+                      // <img
+                      //   src={process.env.PUBLIC_URL + '/images/snowman.png'}
+                      //   alt="snowman"
+                      // />
                     }
+
+                    {snowmanIdDivmod === 2 ? (
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          '/images/snowmanList/' +
+                          a.snowmanType +
+                          '.png'
+                        }
+                        alt="snowman"
+                      />
+                    ) : (
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          '/images/snowmanList/SantaSanta.png'
+                        }
+                        alt="snowman"
+                      />
+                    )}
+                  </DefaultSnowman>
+                  <SecondLine>
+                    <img
+                      src={process.env.PUBLIC_URL + '/images/snowman.png'}
+                      alt="snowman"
+                      className="secondSnowman"
+                    />
+                    <img
+                      src={process.env.PUBLIC_URL + '/images/snowman.png'}
+                      alt="snowman"
+                      className="thirdSnowman"
+                    />
+                  </SecondLine>
+                  <img
+                    src={process.env.PUBLIC_URL + '/images/snowman.png'}
                     alt="snowman"
+                    className="firstSnowman"
+
                   />
                 </div>
               );
@@ -54,7 +118,7 @@ export default function SnowmanList({ props }) {
           // 이전 페이지 탐색 버튼의 텍스트
           prevPageText={<IoMdArrowDropleftCircle />}
           // 다음 페이지 탐색 버튼의 텍스트
-          nextPageText={'>'}
+          nextPageText={<IoMdArrowDroprightCircle />}
           // 페이지 변경 핸들러 pageNumber를 인수로 수신
           onChange={handlePageChange}
         />
@@ -62,3 +126,14 @@ export default function SnowmanList({ props }) {
     );
   }
 }
+
+const DefaultSnowman = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const SecondLine = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: auto;
+`;
