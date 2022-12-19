@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Pagination from 'react-js-pagination';
 import '../../styles/Paging.css';
+
 // import {
 //   IoMdArrowDropleftCircle,
 //   IoMdArrowDroprightCircle,
@@ -20,7 +21,6 @@ export default function SnowmanList() {
     setPage(page);
   };
   const [data, setData] = useState([]);
-
   useEffect(() => {
     axios
       .get('http://localhost:8080/api/snowmans/zzambbang')
@@ -106,6 +106,7 @@ export default function SnowmanList() {
                       className="snowman6"
                     />
                   ) : null}
+
                 </div>
               );
             })
@@ -125,7 +126,7 @@ export default function SnowmanList() {
           // 이전 페이지 탐색 버튼의 텍스트
           prevPageText={'<'}
           // 다음 페이지 탐색 버튼의 텍스트
-          nextPageText={'>'}
+          nextPageText={<IoMdArrowDroprightCircle />}
           // 페이지 변경 핸들러 pageNumber를 인수로 수신
           onChange={handlePageChange}
         />
@@ -133,3 +134,14 @@ export default function SnowmanList() {
     );
   }
 }
+
+const DefaultSnowman = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const SecondLine = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: auto;
+`;
