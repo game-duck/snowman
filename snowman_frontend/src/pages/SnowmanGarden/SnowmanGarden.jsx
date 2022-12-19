@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import AllContainer from '../../components/AllContainer';
 
-import {
-  IoMdArrowDropleftCircle,
-  IoMdArrowDroprightCircle,
-} from 'react-icons/io';
 import ShareUrl from './ShareUrl';
 import { useNavigate } from 'react-router';
 import CaptureImage from './CaptureImage';
@@ -12,6 +8,7 @@ import BugerModal from './BugerModal';
 
 import data from '../../data';
 import SnowmanList from './SnowmanList';
+import Test from './Test';
 
 export default function SnowmanGarden() {
   const navigate = useNavigate();
@@ -23,6 +20,7 @@ export default function SnowmanGarden() {
 
   return (
     <AllContainer>
+      <Test></Test>
       <Main>
         <BugerModal />
         <MainText>
@@ -39,45 +37,7 @@ export default function SnowmanGarden() {
         <Garden>
           <Snowman>
             <SnowmanList props={Data} />
-            <DefaultSnowman>
-              <img
-                src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                alt="snowman"
-              />
-              <img
-                src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                alt="snowman"
-              />
-            </DefaultSnowman>
-            <SecondLine>
-              <img
-                src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                alt="snowman"
-                className="secondSnowman"
-              />
-              <img
-                src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                alt="snowman"
-                className="thirdSnowman"
-              />
-            </SecondLine>
-            <img
-              src={process.env.PUBLIC_URL + '/images/snowman.png'}
-              alt="snowman"
-              className="firstSnowman"
-            />
           </Snowman>
-
-          <IoMdArrowDroprightCircle
-            size="30"
-            style={{
-              position: 'absolute',
-              bottom: '50vh',
-              right: '3%',
-              cursor: 'pointer',
-              zIndex: '99',
-            }}
-          />
 
           <Santa>
             <img
@@ -122,16 +82,6 @@ const Snowman = styled.div`
     display: block;
     margin: auto;
   }
-`;
-const DefaultSnowman = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-const SecondLine = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  width: 80%;
-  margin: auto;
 `;
 const Santa = styled.div`
   position: absolute;
