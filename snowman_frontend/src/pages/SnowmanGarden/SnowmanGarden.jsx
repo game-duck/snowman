@@ -19,6 +19,7 @@ export default function SnowmanGarden(props) {
   };
   const [data, setData] = useState([]);
 
+
   useEffect(() => {
     axios
       .get('http://localhost:8080/api/snowmans/zzambbang')
@@ -108,6 +109,7 @@ const Snowman = styled.div`
   .snowman2 {
     position: absolute;
     bottom: 13vh;
+
     left: 18%;
     transform: scale(1.4);
     z-index: 105;
@@ -138,6 +140,7 @@ const Snowman = styled.div`
     position: absolute;
     bottom: 20vh;
     right: 6%;
+
     transform: scale(1.4);
     z-index: 104;
   }
