@@ -186,6 +186,8 @@ Servers/
 
 #yml파일
 application.yml
+*.yml
+**/*.yml
 
 #react
 node_modules/*.
