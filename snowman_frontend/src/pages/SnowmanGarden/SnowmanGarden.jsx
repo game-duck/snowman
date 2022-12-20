@@ -1,21 +1,32 @@
 import styled from 'styled-components';
-import AllContainer from '../../components/AllContainer';
-
-import ShareUrl from './ShareUrl';
 import { useNavigate } from 'react-router';
+import AllContainer from '../../components/AllContainer';
+import ShareUrl from './ShareUrl';
 import CaptureImage from './CaptureImage';
 import BugerModal from './BugerModal';
-
-import data from '../../data';
 import SnowmanList from './SnowmanList';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-export default function SnowmanGarden() {
+export default function SnowmanGarden(props) {
   const navigate = useNavigate();
+
   const linkSnowmanDesign = () => {
     navigate('/snowmanDesign');
   };
+  const linkReadingLetter = () => {
+    navigate('/readingLetter');
+  };
+  const [data, setData] = useState([]);
 
-  const Data = data;
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:8080/api/snowmans/zzambbang')
+      .then((response) => {
+        setData(response.data.data);
+      });
+  }, []);
 
   return (
     <AllContainer>
@@ -23,10 +34,8 @@ export default function SnowmanGarden() {
         <BugerModal />
         <MainText>
           <span style={{ color: '#f5c51f' }}>수지</span> 님의 정원에
-          <br></br>
-          <span style={{ color: '#ce4545' }}>0</span> 개의 눈사람이
-          만들어졌어요!
-          <br></br>총 <span style={{ color: '#ce4545' }}>0</span> 개의 메세지
+          <br></br>총 <span style={{ color: '#ce4545' }}>{data.length}</span>{' '}
+          개의 눈사람이 만들어졌어요!
           <br></br>
           <ShareUrl />
           <CaptureImage />
@@ -34,34 +43,7 @@ export default function SnowmanGarden() {
 
         <Garden>
           <Snowman>
-            <SnowmanList props={Data} />
-            <DefaultSnowman>
-              <img
-                src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                alt="snowman"
-              />
-              <img
-                src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                alt="snowman"
-              />
-            </DefaultSnowman>
-            <SecondLine>
-              <img
-                src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                alt="snowman"
-                className="secondSnowman"
-              />
-              <img
-                src={process.env.PUBLIC_URL + '/images/snowman.png'}
-                alt="snowman"
-                className="thirdSnowman"
-              />
-            </SecondLine>
-            <img
-              src={process.env.PUBLIC_URL + '/images/snowman.png'}
-              alt="snowman"
-              className="firstSnowman"
-            />
+            <SnowmanList data={data} />
           </Snowman>
 
           <Santa>
@@ -69,8 +51,8 @@ export default function SnowmanGarden() {
               src={process.env.PUBLIC_URL + '/images/treeHomeSanta.png'}
               alt="treeHomeSanta"
               style={{
-                width: '45vh',
-                // objectFit: 'cover',
+                width: '100%',
+                objectFit: 'cover',
                 display: 'block',
                 margin: 'auto',
               }}
@@ -80,6 +62,7 @@ export default function SnowmanGarden() {
           <Snow></Snow>
 
           <DesignBtn onClick={linkSnowmanDesign}>눈사람 만들어주기</DesignBtn>
+          <DesignBtn onClick={linkReadingLetter}>편지 읽으러가기</DesignBtn>
         </Garden>
       </Main>
     </AllContainer>
@@ -101,7 +84,14 @@ const Snowman = styled.div`
   position: absolute;
   bottom: 10vh;
   z-index: 99;
-  width: 100%;
+  width: 100vw;
+
+  max-width: 800px;
+  max-height: 298px;
+
+  & img {
+    -webkit-border-radius: 100px;
+  }
 
   & img:hover {
     transform: scale(1.8);
@@ -112,54 +102,48 @@ const Snowman = styled.div`
     position: absolute;
     bottom: 7vh;
     left: 37%;
-    transform: scale(1.6);
+    transform: translate(-50%, 0);
+    transform: scale(1.4);
     z-index: 106;
   }
   .snowman2 {
     position: absolute;
     bottom: 13vh;
-    left: 20%;
-    transform: scale(1.6);
+
+    left: 18%;
+    transform: scale(1.4);
     z-index: 105;
   }
   .snowman3 {
     position: absolute;
     bottom: 13vh;
-    left: 57%;
-    transform: scale(1.6);
+    right: 20%;
+    transform: scale(1.4);
     z-index: 105;
   }
   .snowman4 {
     position: absolute;
     bottom: 20vh;
-    left: 10%;
-    transform: scale(1.6);
+    left: 6%;
+    transform: scale(1.4);
     z-index: 104;
   }
   .snowman5 {
     position: absolute;
     bottom: 20vh;
     left: 37%;
-    transform: scale(1.6);
+    transform: translate(-50%, 0);
+    transform: scale(1.4);
     z-index: 104;
   }
   .snowman6 {
     position: absolute;
     bottom: 20vh;
-    right: 10%;
-    transform: scale(1.6);
+    right: 6%;
+
+    transform: scale(1.4);
     z-index: 104;
   }
-`;
-const DefaultSnowman = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-const SecondLine = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  width: 80%;
-  margin: auto;
 `;
 const Santa = styled.div`
   position: absolute;
