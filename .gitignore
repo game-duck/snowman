@@ -184,7 +184,8 @@ sketch
 Servers/
 .Servers/
 
-*.yml
+#yml파일
+application.yml
 
 #react
 node_modules/*.
