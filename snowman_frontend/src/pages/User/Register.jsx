@@ -19,7 +19,7 @@ export default function Register() {
     if (email) {
       navigate(`/snowmanGarden/${email}`, { state: email });
     } else {
-      navigate('/snowmanGarden/main');
+      navigate('/');
     }
   };
   const emailChange = (e) => {

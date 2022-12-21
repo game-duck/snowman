@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import Pagination from 'react-js-pagination';
 import '../../styles/Paging.css';
-// import {
-//   IoMdArrowDropleftCircle,
-//   IoMdArrowDroprightCircle,
-// } from 'react-icons/io';
 
-export default function SnowmanList({ data, gardenEmail }) {
+export default function SnowmanList({ data }) {
   /* pagingnation */
   // 첫 번째 페이지
   const [page, setPage] = useState(1);
@@ -17,45 +13,7 @@ export default function SnowmanList({ data, gardenEmail }) {
     setPage(page);
   };
 
-  if (gardenEmail === 'main') {
-    return (
-      <>
-        <img
-          src={
-            process.env.PUBLIC_URL + '/images/snowmanList/RudolphRudolph.png'
-          }
-          alt="snowman1"
-          className="snowman1"
-        />
-        <img
-          src={process.env.PUBLIC_URL + '/images/snowmanList/duckduck.png'}
-          alt="snowman2"
-          className="snowman2"
-        />
-        <img
-          src={process.env.PUBLIC_URL + '/images/snowmanList/BasicBasic.png'}
-          alt="snowman3"
-          className="snowman3"
-        />
-        <img
-          src={process.env.PUBLIC_URL + '/images/snowmanList/SantaSanta.png'}
-          alt="snowman4"
-          className="snowman4"
-        />
-
-        <img
-          src={process.env.PUBLIC_URL + '/images/snowmanList/HealthHealth.png'}
-          alt="snowman5"
-          className="snowman5"
-        />
-        <img
-          src={process.env.PUBLIC_URL + '/images/snowmanList/CookieCookie.png'}
-          alt="snowman6"
-          className="snowman6"
-        />
-      </>
-    );
-  } else if (data) {
+  if (data) {
     return (
       <>
         {data.length > 0 ? (
