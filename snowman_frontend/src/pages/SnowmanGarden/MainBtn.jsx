@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export default function MainBtn({ gardenEmail, currentUser }) {
   const navigate = useNavigate();
   const linkSnowmanDesign = () => {
+
     navigate(`/snowmanDesign/${gardenEmail}`);
   };
   const linkReadingLetter = () => {
@@ -13,6 +14,7 @@ export default function MainBtn({ gardenEmail, currentUser }) {
   return (
     <>
       {currentUser != null ? (
+
         <DesignBtn onClick={linkReadingLetter}>편지 읽으러가기</DesignBtn>
       ) : (
         <DesignBtn onClick={linkSnowmanDesign}>눈사람 만들어주기</DesignBtn>

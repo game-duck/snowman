@@ -18,6 +18,7 @@ function App() {
       <Print id="print">
         <Snowfall />
         <Routes>
+
           <Route path="/" element={<MainGarden />} />
           <Route path="/snowmanGarden/:email" element={<SnowmanGarden />} />
           <Route path="/snowmanDesign/:email" element={<SnowmanDesign />} />
@@ -25,6 +26,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/letter/:email" element={<Letter />} />
           <Route path="/readingletter/:email" element={<ReadingLetter />} />
+
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Print>

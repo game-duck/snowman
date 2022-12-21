@@ -72,7 +72,6 @@ export default function ReadingLetter() {
           눈사람을 클릭하면 <span style={{ color: '#f5c51f' }}>편지</span>가
           보여요!
         </MainText>
-
         {data.length > 0
           ? data
               .slice(pagePost * (page - 1), pagePost * (page - 1) + pagePost)
@@ -152,16 +151,19 @@ export default function ReadingLetter() {
 const Main = styled.div`
   display: flex;
   flex-direction: column;
+
   .pagination {
     margin-top: 30vh;
 
     color: #0f1322;
     z-index: 99;
   }
+
 `;
 
 const MainText = styled.div`
   z-index: 99;
+
   margin: 2rem;
   font-size: 1.5rem;
 `;
@@ -173,6 +175,7 @@ const Snowman = styled.div`
   max-width: 200px;
   max-height: 298px;
   z-index: 3;
+
   cursor: pointer;
   & img {
     max-width: 100%;
@@ -181,9 +184,11 @@ const Snowman = styled.div`
   .snowmanLetter {
     position: absoulte;
     width: 100%;
+
     transform: scale(1.8);
     margin-top: 25vh;
     objectfit: cover;
+
   }
 
   // 회전 효과
@@ -204,6 +209,7 @@ const Snowman = styled.div`
     transform: rotateY(0deg);
   }
 `;
+
 const LetterContent = styled.div`
   margin-top: -100%;
   margin-left: -30%;
@@ -235,6 +241,7 @@ const Name = styled.span`
   background-position: center;
   transform: rotate(7deg);
 `;
+
 const BackBtn = styled.div`
   width: 30%;
   font-size: 1rem;
@@ -257,6 +264,30 @@ const BackBtn = styled.div`
   }
 `;
 
+const DesignBox = styled.div`
+  width: 85%;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 5%;
+  border-radius: 5px;
+  padding: 2.5% 2%;
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const DesignBtnBox = styled.div`
+  width: 100%;
+  height: 120%;
+  margin: 0 auto 10px;
+`;
+
+const SnowmanBox = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 const Background = styled.div``;
 
 const TreeHome = styled.div`

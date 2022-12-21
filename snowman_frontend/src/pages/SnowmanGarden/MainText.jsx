@@ -2,6 +2,7 @@ import ShareUrl from './ShareUrl';
 import CaptureImage from './CaptureImage';
 import styled from 'styled-components';
 
+
 export default function MainText({ nickname, data }) {
   return (
     <>
@@ -15,6 +16,7 @@ export default function MainText({ nickname, data }) {
       </UserText>
     </>
   );
+
 }
 
 const UserText = styled.div`
@@ -22,3 +24,4 @@ const UserText = styled.div`
   margin: 2rem;
   z-index: 99;
 `;
+

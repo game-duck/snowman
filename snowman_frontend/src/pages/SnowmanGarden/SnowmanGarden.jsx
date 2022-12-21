@@ -4,16 +4,19 @@ import { useLocation } from 'react-router';
 import axios from 'axios';
 import { API } from '../../config';
 import styled from 'styled-components';
+
 import AllContainer from '../../components/AllContainer';
 import MainText from './MainText';
 import BugerModal from './BugerModal';
 import SnowmanList from './SnowmanList';
+
 import MainBtn from './MainBtn';
 
 export default function SnowmanGarden(props) {
   const location = useLocation();
 
   const [data, setData] = useState([]);
+
 
   const [nickname, setNickname] = useState('');
   const [gardenEmail, setGardenEmail] = useState();
@@ -69,6 +72,7 @@ export default function SnowmanGarden(props) {
       </AllContainer>
     );
   }
+
 }
 
 const Main = styled.div`

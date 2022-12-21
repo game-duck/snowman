@@ -38,7 +38,9 @@ export default function BugerModal({ gardenEmail, currentUser }) {
       if (gardenEmail) {
         window.location.replace(`/snowmanGarden/${gardenEmail}`);
       } else {
+
         window.location.replace('/');
+
       }
       alert('로그아웃 성공!');
     });
@@ -81,6 +83,7 @@ export default function BugerModal({ gardenEmail, currentUser }) {
             />
             <ModalContent>
               {currentUser != null ? (
+
                 <>
                   <p className="user" onClick={onLogout}>
                     로그아웃
@@ -95,6 +98,7 @@ export default function BugerModal({ gardenEmail, currentUser }) {
 
                   <p onClick={linkSnowmanGarden}>내 정원가기</p>
                 </>
+
               ) : (
                 <>
                   <p className="user" onClick={linkLogin}>
