@@ -12,7 +12,7 @@ export default function SnowmanDesign() {
 
   // 주소 정보
   const emailPath = location.pathname;
-  const emailLocation = emailPath.substring(15);
+  const emailLocation = emailPath.substring(8);
   const Head = location.state.Head;
   const Body = location.state.Body;
 
@@ -36,11 +36,11 @@ export default function SnowmanDesign() {
       Body: Body
     }});
   };
-
+  console.log(emailLocation)
   const onSubmitHandler = () => {
     axios
     .post(API.SNOWMANPOST, {
-      targetEmail: "1111",
+      targetEmail:emailLocation,
       headType: Head,
       bodyType: Body,
       authorNickname: nickName,
