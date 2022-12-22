@@ -36,7 +36,7 @@ export default function SnowmanDesign() {
       Body: Body
     }});
   };
-  console.log(emailLocation)
+
   const onSubmitHandler = () => {
     axios
     .post(API.SNOWMANPOST, {
