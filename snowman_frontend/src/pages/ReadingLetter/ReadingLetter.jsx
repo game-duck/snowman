@@ -182,7 +182,7 @@ const MainText = styled.div`
 `;
 
 const Snowman = styled.div`
-  perspective: 500px;
+  perspective: 600px;
   width: 100%;
   margin: auto;
   max-width: 200px;
@@ -232,23 +232,27 @@ const Snowman = styled.div`
 
   @keyframes letterFront {
     0% {
+      transform: rotateY(0deg);
     }
     70% {
       opacity: 0;
     }
     100% {
       opacity: 0;
+      transform: rotateY(180deg);
     }
   }
 
   @keyframes letterBack {
     0% {
+      transform: rotateY(-180deg);
       opacity: 0;
     }
     70% {
       opacity: 0;
     }
     100% {
+      transform: rotateY(0deg);
     }
   }
 
