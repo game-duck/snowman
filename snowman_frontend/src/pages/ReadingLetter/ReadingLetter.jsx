@@ -332,30 +332,6 @@ const BackBtn = styled.div`
   }
 `;
 
-const DesignBox = styled.div`
-  width: 85%;
-  height: auto;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  bottom: 5%;
-  border-radius: 5px;
-  padding: 2.5% 2%;
-  z-index: 99;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const DesignBtnBox = styled.div`
-  width: 100%;
-  height: 120%;
-  margin: 0 auto 10px;
-`;
-
-const SnowmanBox = styled.div`
-  width: 100%;
-  height: 100%;
-`;
 const Background = styled.div``;
 
 const TreeHome = styled.div`
