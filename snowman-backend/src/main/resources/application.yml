@@ -14,6 +14,7 @@ spring:
     url:   jdbc:mariadb://${DB_HOST}:${DB_PORT}/gameducksnowman?characterEncoding=UTF-8&serverTimezone=UTC
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
+
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     driver-class-name: org.mariadb.jdbc.Driver
 
