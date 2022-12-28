@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { API } from '../../config';
 
+// axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+// axios.defaults.withCredentials = true;
+
 const register = (email, password, nickname) => {
   return axios.post(API.REGISTER, {
     email,
@@ -9,12 +12,11 @@ const register = (email, password, nickname) => {
   });
 };
 
+
+
 const login = (email, password) => {
   return axios
-    .post(API.LOGIN, {
-      email,
-      password,
-    })
+    .post(API.LOGIN, {email,password})
     .then((response) => {
       if (response.data.accessToken) {
         localStorage.setItem('user', JSON.stringify(response.data));

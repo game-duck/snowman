@@ -2,6 +2,7 @@
   "name": "snowman_frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://port-0-snowman-20z52flc1ehpg7.gksl2.cloudtype.app/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
     "html2canvas": "^1.4.1",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
