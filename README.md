@@ -1,4 +1,4 @@
-#  <h1 align="center">   ☃ Snowman Garden ☃    </h1>
+#  <h1 align="center">   ☃ Snowman Garden ☃    </h1> 
 <p align="center"> 친구들과 즐겁게 소통해요! </br> 크리스마스 기념 롤링페이퍼 서비스 스노우맨 가든입니다! </p>
 
 ![image](https://user-images.githubusercontent.com/78632299/210131940-d13b52a9-9e70-4491-b85b-7d6494783b71.png) 
